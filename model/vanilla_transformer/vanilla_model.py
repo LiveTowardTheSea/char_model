@@ -5,12 +5,11 @@ import math
 from Encoder import *
 from Pos_Encoding import *
 import copy
-from Decoder import *
+from CRF_Decoder import *
 
-
-class Seq2Seq(nn.Module):
+class vanilla_model(nn.Module):
     def __init__(self, config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size):
-        super(Seq2Seq, self).__init__()
+        super(vanilla_model, self).__init__()
         self.config = config
         self.encoder = Encoder(config, src_embedding_num, embedding_matrix, embedding_dim_size)
         self.decoder = CRF_decoder(config, tag_num)

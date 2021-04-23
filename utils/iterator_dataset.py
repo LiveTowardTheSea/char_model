@@ -74,11 +74,10 @@ class data_iterator:
         self.offset = 0
         self.max_num = len(self.data_list) // batch_size + 1 if len(self.data_list) % batch_size != 0 else len(self.data_list) // batch_size
 
-    def __iter__(self):
-        print("iter方法正在被调用")
-        return self
+    def reset_iter(self):
+        self.offset = 0
 
-    def __next__(self):
+    def next(self):
         if self.offset == self.max_num:
             raise StopIteration
         next_idx = (self.offset + 1) * self.batch_size if self.offset != self.max_num - 1 else len(self.data_list)

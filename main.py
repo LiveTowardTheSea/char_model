@@ -12,10 +12,12 @@ import numpy as np
 from utils.metric import *
 from utils.iterator_dataset import *
 import os
+import sys
 
+f = open('a.log', 'a')
 
 def get_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size, use_gpu, load_model=None):
-    model = Seq2Seq(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)
+    model = vanilla_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)
     if load_model is not None:
         model.load_state_dict(torch.load(load_model))
     else:
@@ -26,9 +28,6 @@ def get_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_di
     print('需要训练的模型参数总量:', sum(p.numel() for p in model.parameters() if p.requires_grad))
     if True:
         model_ = model.cuda()  # 不是就地操作
-    for p in model_.parameters():
-        print('模型参数位置:',p.device)
-        break
     return model_
 
 
@@ -89,7 +88,7 @@ def eval_model(model, my_data, mode='dev', use_gpu=True):
         print('evaluation mode choose from test and dev')
     while True:
         try:
-            sentence_tensor, tag_tensor, sentence_mask = next(data_iter)
+            sentence_tensor, tag_tensor, sentence_mask = data_iter.next()
             # 转换到gpu上面
             if use_gpu:
                 sentence_tensor.cuda()
@@ -110,6 +109,7 @@ def eval_model(model, my_data, mode='dev', use_gpu=True):
             char_num += cur_char_num
             acc_char_num += cur_acc_num
         except StopIteration:
+            data_iter.reset_iter()
             break
     if predict_num == 0:
         precision = -1
@@ -136,8 +136,8 @@ def train_model(model, config, args, my_data, use_gpu):
     :param use_gpu: 是否使用 GPU
     :return: 不知道返回什么呢哈哈哈啊哈
     """
-    best_dev = -1  # 最好的F值是什么
-    print_interval = 10  # 每十个batch输出一次
+    best_dev = -1.0  # 最好的F值是什么
+    print_interval = 40 # 每十个batch输出一次
     # 准备优化器
     optimizer = torch.optim.SGD(model.parameters(), lr=config.lr, weight_decay=config.regularization)
     # 实现的一些功能：lr decay / 模型保存
@@ -156,12 +156,15 @@ def train_model(model, config, args, my_data, use_gpu):
         # 然后我们对epoch内的数据进行随机打乱,不知道行不行
         data_num = len(my_data.train_iter.data_list)
         print("训练数据总量：", data_num)
-        np.random.shuffle(my_data.train_iter.data_list)
+        # np.random.shuffle(my_data.train_iter.data_list)
         # 下面，如何取得迭代数据，并把其搞到gpu上面
         while True:
             try:
                 # 不知道这样子行不行哈哈哈哈哈哈 我真是佛了
-                sentence_tensor, tag_tensor, sentence_mask = next(my_data.train_iter)
+                sentence_tensor, tag_tensor, sentence_mask = my_data.train_iter.next()
+                # print(sentence_tensor)
+                # print(tag_tensor)
+                # print(sentence_mask)
                 # 转换到gpu上面
                 if use_gpu:
                     sentence_tensor = sentence_tensor.cuda()
@@ -175,28 +178,31 @@ def train_model(model, config, args, my_data, use_gpu):
                 batch_loss.backward()  # 不知道可不可以
                 optimizer.step()
                 batch_id += 1
+                # print('epoch:{}, batch:{}, loss:{:.4f}'.format(epoch_idx, batch_id, batch_loss.item()))
                 if batch_id % print_interval == 0:
                     sample_cost = time.time() - sample_start
-                    print('epoch:{}, batch:{}, time:{}, loss:{.4f}'.format(epoch_idx, batch_id, sample_cost, sample_loss.data))
+                    print('sample loss: epoch:{}, batch:{}, time:{:.2f}s, batch_loss:{:.4f}'.format(epoch_idx, batch_id, sample_cost, sample_loss.item()/print_interval),file=f,flush=True)
                     sample_start = time.time()
                     sample_loss = 0.0
             except StopIteration:
+                my_data.train_iter.reset_iter()
                 break
+                
         epoch_end = time.time()
         epoch_cost = epoch_end - epoch_start
-        print('Epoch:{} training finished. Time: {.2f}s, '
-              'speed: {.2f}s/instance, total loss:{.2f}'.format(epoch_idx + 1,epoch_cost,epoch_cost/data_num,epoch_loss.data))
-        acc, p, r, f = eval_model(model, my_data, use_gpu=use_gpu)
-        dev_cost = time.time() - epoch_end
-        print('dev_result: epoch:{}, time:{.2f}, accuracy:{.4f}, '
-              'precision:{.4f}, recall:{.4f}, f_measure:{.4f} '.format(epoch_idx+1, dev_cost, acc, p, r, f))
-        if f > best_dev:
-            print("epoch:{} dev set exceed best f score{}".format(epoch_idx+1, best_dev))
-            best_dev = f
-            # 如果要运行多个模型，这个就需要注意了哦！
-            # save_model 应该是一个包含了模型名称的路径
-            model_name = args.save_model + os.sep + 'epoch_' + str(epoch_idx)+ '.model'
-            torch.save(model.state_dict(), model_name)
+        print('Epoch:{} training finished. Time: {:.2f}s, '
+              'speed: {:.2f}s/instance, total loss:{:.4f}'.format(epoch_idx + 1,epoch_cost,epoch_cost/data_num,epoch_loss.item()),file=f,flush=True)
+        # acc, p, r, f = eval_model(model, my_data, use_gpu=use_gpu)
+        # dev_cost = time.time() - epoch_end
+        # print('dev_result: epoch:{}, time:{:.2f}, accuracy:{:.4f}, '
+        #       'precision:{:.4f}, recall:{:.4f}, f_measure:{:.4f} '.format(epoch_idx+1, dev_cost, acc, p, r, f))
+        # if f > best_dev:
+        #     print("epoch:{} dev set exceed best f score{:4f}".format(epoch_idx+1, best_dev))
+        #     best_dev = f
+        #     # 如果要运行多个模型，这个就需要注意了哦！
+        #     # save_model 应该是一个包含了模型名称的路径
+        #     model_name = args.save_model + os.sep + 'epoch_' + str(epoch_idx)+ '.model'
+        #     torch.save(model.state_dict(), model_name)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch
+import math
 
 # 按照batch版本来实现的。
 # 按照论文 Neural Architectures for Named Entity Recognition 来实现的。
@@ -20,16 +21,19 @@ def compute_mask(mask, use_gpu):
     :param mask:
     :return:
     """
-    temp = torch.ones(mask.shape[0], mask.shape[1])
+    # 这里居然是int 
+    temp = torch.ones(mask.shape[0], mask.shape[1], dtype=torch.float32)
     if use_gpu:
-        temp.cuda()
-    binary_mask = temp.masked_fill(mask, value=torch.tensor(0, dtype=torch.float))
+        temp =temp.cuda()
+    binary_mask = temp.masked_fill(mask,value=0.0)
+    binary_mask = binary_mask
     return binary_mask
 
 class CRF_decoder(nn.Module):
     def __init__(self, config, tag_num):
         super(CRF_decoder, self).__init__()
         self.tag_num = tag_num
+        self.config = config
         self.feature2tag = nn.Linear(config.d_model, tag_num, bias=False)
         self.transition_matrix = nn.Parameter(torch.randn((tag_num + 2, tag_num + 2)))
         # transition_matrix[i][j]代表了 从i到j的转移
@@ -49,28 +53,34 @@ class CRF_decoder(nn.Module):
        """
         batch_size = tag_vec.shape[0]
         time_step = tag_vec.shape[1]
-        binary_mask = compute_mask(mask)
-        result = torch.zeros(batch_size).unsqueeze(1)
+        binary_mask = compute_mask(mask, use_gpu)
+        # print('当前mask尺寸:',binary_mask.shape, binary_mask.dtype)
+        result = torch.zeros(batch_size, dtype=torch.float32).unsqueeze(1)
         # 求一下初始的转移结果
         if use_gpu:
             result = result.cuda()
         start_trans = self.transition_matrix[self.SRT_IDX, :]
-        result += start_trans[y[:, 0]]
+        #print('到开始的转移矩阵，尺寸：',start_trans.size())
+        result += start_trans[y[:, 0]].unsqueeze(-1)
         for i in range(time_step):
             #  首先求emission score:
             emit = tag_vec[:, i, :]  # (batch_size, tag_num)
-            emit_ = torch.gather(emit, dim=1, index=torch.unsqueeze(y[:, i], dim=1))
+            # 这里可能会出现问题，因为当前可能会存在pad_idx，但我们在tag_vocab中并没有pad 这个置于最后面的idx
+            # 所以我们在这里，我们首先，把 含有pad_idx的东西都变成是一个在其范围之内的东东
+            current_time_batch = y[:, i].masked_fill(mask[:, i], value = 0).long()
+            emit_ = torch.gather(emit, dim=1, index=torch.unsqueeze(current_time_batch, dim=1))
             result += emit_ * binary_mask[:, i].unsqueeze(1)
             # 接下来，求解 transition score
             trans = self.transition_matrix[y[:, i], :]  # y[:, i]的形状是[batch_size],中间有pad
             if i != time_step - 1:
                 trans_ = torch.gather(trans, dim=1, index=torch.unsqueeze(y[:, i + 1], dim=1))
-                result += trans_ * binary_mask[:, i].unsqueeze(1) * binary_mask[:, i + 1].unsqueeze(1)
+                result += trans_  * binary_mask[:, i + 1].unsqueeze(1)
 
         end_trans = self.transition_matrix[:, self.END_IDX]
         sentence_length = time_step - torch.sum(mask, dim=-1).long()
         end_token = torch.gather(y, dim=1, index=torch.unsqueeze(sentence_length - 1, dim=1)).squeeze(-1)
-        result += end_trans[end_token]
+        result += end_trans[end_token].unsqueeze(-1)
+        #print("当前sentence_score为：",result.squeeze(-1))
         return result
 
     def sum_of_sentence_score(self, tag_vec, mask, use_gpu):
@@ -87,12 +97,12 @@ class CRF_decoder(nn.Module):
             initial_graph = initial_graph.cuda()
         initial_graph += self.transition_matrix[self.SRT_IDX, :-2]
         previous = initial_graph
-        binary_mask = compute_mask(mask)
+        binary_mask = compute_mask(mask,use_gpu)
         tran_score = self.transition_matrix[:-2, :-2]   # (tag_num,tag_num)
         for i in range(seq_len):
             obj = tag_vec[:, i, :]  # (batch_size,tag_num)
             if i == seq_len - 1:
-                mask_2 = torch.zeros(batch_size, 1)
+                mask_2 = torch.zeros(batch_size, 1, dtype=torch.float32)
             else:
                 mask_2 = binary_mask[:, i + 1].unsqueeze(1)
             if use_gpu:
@@ -157,20 +167,16 @@ class CRF_decoder(nn.Module):
     def loss(self, feature_vec, y, mask, use_gpu):
         """返回[batch_size]"""
         tag_vec = self.feature2tag(feature_vec)
+        # 这里太大了，我们除以一个东西
+        tag_vec = tag_vec / math.sqrt(self.config.d_model)
         s_xy = self.compute_score(tag_vec, y, mask, use_gpu)
         sum_sentence = self.sum_of_sentence_score(tag_vec, mask, use_gpu)
+        #print("当前batch，所有路径总结果为：",sum_sentence)
         return sum_sentence - s_xy.squeeze(-1)
 
     def forward(self, feature_vec, mask, use_gpu):
         tag_vec = self.feature2tag(feature_vec)
         best_path = self.viterbi_decode(tag_vec, mask, use_gpu)
         return best_path
-
-
-
-
-
-
-
 
 
