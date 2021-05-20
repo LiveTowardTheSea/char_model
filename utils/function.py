@@ -41,6 +41,7 @@ def load_pretrained_embedding(pretrained_path, vocab):
     print('constructing pretrained embedding matrix')
     # 这里，向量应该是对应的一行一个单词 一堆词向量
     pretrained_embedding_dict, pretrained_embedding_dim = load_pretrained_emb(pretrained_path)
+    print(pretrained_embedding_dim)
     oov_num = 0
     # 还要有pad 以及unk 的 embedding
     pretrained_vector = np.zeros((len(vocab.vocab_list)+2, pretrained_embedding_dim))
@@ -83,5 +84,3 @@ def load_pretrained_emb(pretrained_path=None):
         exit(0)
 
     return pretrained_embedding_dict, pretrained_embedding_dim
-
-

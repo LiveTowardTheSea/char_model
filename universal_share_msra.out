@@ -1,0 +1,1053 @@
+gpu是否空闲： True
+init iterator: data/MSRA/msra_train_bioes
+init iterator: data/MSRA/msra_dev_bioes
+encoder.first_weight_param torch.Size([1024, 256])
+encoder.first_bias_param torch.Size([1024])
+encoder.second_weight_param torch.Size([256, 1024])
+encoder.second_bias_param torch.Size([256])
+encoder.embed.weight torch.Size([4857, 256])
+encoder.encoder_layer.0.attention.q_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.0.attention.q_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.0.attention.k_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.0.attention.k_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.0.attention.v_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.0.attention.v_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.0.attention.o_matrix.weight torch.Size([256, 256])
+encoder.encoder_layer.0.attention.o_matrix.bias torch.Size([256])
+encoder.encoder_layer.0.atten_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.0.atten_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.0.trans_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.0.trans_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.1.attention.q_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.1.attention.q_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.1.attention.k_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.1.attention.k_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.1.attention.v_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.1.attention.v_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.1.attention.o_matrix.weight torch.Size([256, 256])
+encoder.encoder_layer.1.attention.o_matrix.bias torch.Size([256])
+encoder.encoder_layer.1.atten_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.1.atten_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.1.trans_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.1.trans_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.2.attention.q_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.2.attention.q_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.2.attention.k_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.2.attention.k_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.2.attention.v_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.2.attention.v_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.2.attention.o_matrix.weight torch.Size([256, 256])
+encoder.encoder_layer.2.attention.o_matrix.bias torch.Size([256])
+encoder.encoder_layer.2.atten_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.2.atten_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.2.trans_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.2.trans_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.3.attention.q_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.3.attention.q_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.3.attention.k_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.3.attention.k_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.3.attention.v_multi_linear.weight torch.Size([256, 256])
+encoder.encoder_layer.3.attention.v_multi_linear.bias torch.Size([256])
+encoder.encoder_layer.3.attention.o_matrix.weight torch.Size([256, 256])
+encoder.encoder_layer.3.attention.o_matrix.bias torch.Size([256])
+encoder.encoder_layer.3.atten_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.3.atten_layer_norm.beta torch.Size([256])
+encoder.encoder_layer.3.trans_layer_norm.gamma torch.Size([256])
+encoder.encoder_layer.3.trans_layer_norm.beta torch.Size([256])
+encoder.trans_halting_prob.weight torch.Size([1, 256])
+encoder.trans_halting_prob.bias torch.Size([1])
+decoder.transition_matrix torch.Size([15, 15])
+decoder.feature2tag.weight torch.Size([13, 256])
+需要训练的模型参数总量: 2829538
+training epoch: 1
+ Learning rate is setted as: 0.001
+训练数据总量： 44625
+/home/wqt/.conda/envs/transformer1/lib/python3.6/site-packages/torch/nn/functional.py:1639: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+sentence_shape: torch.Size([32, 81])
+sample loss: epoch:1, batch:100, time:141.19s, batch_loss:3340.9344
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:1, batch:200, time:130.69s, batch_loss:2796.6256
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:1, batch:300, time:144.22s, batch_loss:3156.5294
+sentence_shape: torch.Size([32, 57])
+sample loss: epoch:1, batch:400, time:123.07s, batch_loss:2520.3384
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:1, batch:500, time:126.47s, batch_loss:2616.0494
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:1, batch:600, time:149.38s, batch_loss:3071.9756
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:1, batch:700, time:131.32s, batch_loss:2634.4897
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:1, batch:800, time:146.11s, batch_loss:3079.1153
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:1, batch:900, time:135.85s, batch_loss:2641.9075
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:1, batch:1000, time:131.97s, batch_loss:2351.1817
+sentence_shape: torch.Size([32, 124])
+sample loss: epoch:1, batch:1100, time:134.11s, batch_loss:2575.2289
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:1, batch:1200, time:149.42s, batch_loss:2854.3544
+sentence_shape: torch.Size([32, 58])
+sample loss: epoch:1, batch:1300, time:136.84s, batch_loss:2555.8397
+Epoch:1 training finished. Time: 1921.12s, speed: 0.04s/instance, total loss:3863695.7500
+Epoch_train_result: epoch:1, accuracy:0.8903, precision:0.2975, recall:0.0472, f_measure:0.0815 
+dev_result: epoch:1, time:134.70, accuracy:0.9435, precision:0.3895, recall:0.1677, f_measure:0.2344 
+epoch:1 dev set exceed best f score-1.0000
+training epoch: 2
+ Learning rate is setted as: 0.00095
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:2, batch:100, time:115.64s, batch_loss:1381.0967
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:2, batch:200, time:115.54s, batch_loss:1403.3517
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:2, batch:300, time:114.26s, batch_loss:1392.2316
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:2, batch:400, time:108.22s, batch_loss:1294.1302
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:2, batch:500, time:125.76s, batch_loss:1461.5669
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:2, batch:600, time:120.97s, batch_loss:1568.1758
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:2, batch:700, time:140.61s, batch_loss:2512.3111
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:2, batch:800, time:133.91s, batch_loss:2486.4498
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:2, batch:900, time:135.46s, batch_loss:2557.7083
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:2, batch:1000, time:129.41s, batch_loss:2219.6780
+sentence_shape: torch.Size([32, 159])
+sample loss: epoch:2, batch:1100, time:141.42s, batch_loss:2491.7964
+sentence_shape: torch.Size([32, 116])
+sample loss: epoch:2, batch:1200, time:131.91s, batch_loss:2340.3550
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:2, batch:1300, time:139.58s, batch_loss:2620.5216
+Epoch:2 training finished. Time: 1782.38s, speed: 0.04s/instance, total loss:2789943.7500
+Epoch_train_result: epoch:2, accuracy:0.9044, precision:0.3685, recall:0.1882, f_measure:0.2492 
+dev_result: epoch:2, time:125.67, accuracy:0.9454, precision:0.4190, recall:0.2031, f_measure:0.2736 
+epoch:2 dev set exceed best f score0.2344
+training epoch: 3
+ Learning rate is setted as: 0.0009025
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:3, batch:100, time:117.13s, batch_loss:1365.6427
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:3, batch:200, time:115.86s, batch_loss:1365.5663
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:3, batch:300, time:117.95s, batch_loss:1371.3144
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:3, batch:400, time:121.64s, batch_loss:1499.6633
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:3, batch:500, time:119.73s, batch_loss:1410.8139
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:3, batch:600, time:128.22s, batch_loss:1674.9409
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:3, batch:700, time:120.68s, batch_loss:2184.1697
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:3, batch:800, time:130.67s, batch_loss:2374.3819
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:3, batch:900, time:136.57s, batch_loss:2487.4514
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:3, batch:1000, time:137.37s, batch_loss:2551.9986
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:3, batch:1100, time:136.68s, batch_loss:2526.0575
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:3, batch:1200, time:139.46s, batch_loss:2531.4978
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:3, batch:1300, time:125.84s, batch_loss:2275.6423
+Epoch:3 training finished. Time: 1788.00s, speed: 0.04s/instance, total loss:2796045.0000
+Epoch_train_result: epoch:3, accuracy:0.9074, precision:0.3836, recall:0.2178, f_measure:0.2778 
+dev_result: epoch:3, time:117.60, accuracy:0.9457, precision:0.4012, recall:0.2122, f_measure:0.2776 
+epoch:3 dev set exceed best f score0.2736
+training epoch: 4
+ Learning rate is setted as: 0.000857375
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:4, batch:100, time:116.89s, batch_loss:1347.3089
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:4, batch:200, time:115.34s, batch_loss:1346.8631
+sentence_shape: torch.Size([32, 127])
+sample loss: epoch:4, batch:300, time:115.11s, batch_loss:1282.9323
+sentence_shape: torch.Size([32, 125])
+sample loss: epoch:4, batch:400, time:115.91s, batch_loss:1365.8789
+sentence_shape: torch.Size([32, 29])
+sample loss: epoch:4, batch:500, time:119.44s, batch_loss:1379.3083
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:4, batch:600, time:123.56s, batch_loss:1524.5722
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:4, batch:700, time:106.06s, batch_loss:1274.9945
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:4, batch:800, time:116.21s, batch_loss:1381.0259
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:4, batch:900, time:112.81s, batch_loss:1344.7491
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:4, batch:1000, time:105.87s, batch_loss:1298.1627
+sentence_shape: torch.Size([32, 57])
+sample loss: epoch:4, batch:1100, time:122.24s, batch_loss:1427.7806
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:4, batch:1200, time:126.82s, batch_loss:1858.2256
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:4, batch:1300, time:117.58s, batch_loss:2225.3666
+Epoch:4 training finished. Time: 1642.43s, speed: 0.04s/instance, total loss:2145602.7500
+Epoch_train_result: epoch:4, accuracy:0.9079, precision:0.3855, recall:0.2249, f_measure:0.2840 
+dev_result: epoch:4, time:122.60, accuracy:0.9490, precision:0.4878, recall:0.2739, f_measure:0.3508 
+epoch:4 dev set exceed best f score0.2776
+training epoch: 5
+ Learning rate is setted as: 0.0008145062499999999
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:5, batch:100, time:100.60s, batch_loss:1367.8009
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:5, batch:200, time:102.33s, batch_loss:1363.7336
+sentence_shape: torch.Size([32, 57])
+sample loss: epoch:5, batch:300, time:100.38s, batch_loss:1357.7903
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:5, batch:400, time:105.71s, batch_loss:1379.4533
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:5, batch:500, time:106.76s, batch_loss:1355.8306
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:5, batch:600, time:126.83s, batch_loss:2315.6691
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:5, batch:700, time:114.18s, batch_loss:2386.9750
+sentence_shape: torch.Size([32, 58])
+sample loss: epoch:5, batch:800, time:121.64s, batch_loss:2446.5328
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:5, batch:900, time:115.92s, batch_loss:2303.2822
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:5, batch:1000, time:133.70s, batch_loss:2843.3837
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:5, batch:1100, time:114.04s, batch_loss:2359.0791
+sentence_shape: torch.Size([32, 57])
+sample loss: epoch:5, batch:1200, time:113.36s, batch_loss:2326.0120
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:5, batch:1300, time:116.51s, batch_loss:2401.3609
+Epoch:5 training finished. Time: 1580.03s, speed: 0.04s/instance, total loss:2813935.0000
+Epoch_train_result: epoch:5, accuracy:0.9087, precision:0.3942, recall:0.2316, f_measure:0.2918 
+dev_result: epoch:5, time:124.40, accuracy:0.9498, precision:0.4521, recall:0.2802, f_measure:0.3460 
+training epoch: 6
+ Learning rate is setted as: 0.0007737809374999998
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:6, batch:100, time:94.59s, batch_loss:1344.2344
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:6, batch:200, time:100.97s, batch_loss:1358.2838
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:6, batch:300, time:94.69s, batch_loss:1249.0903
+sentence_shape: torch.Size([32, 158])
+sample loss: epoch:6, batch:400, time:94.78s, batch_loss:1263.6384
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:6, batch:500, time:96.32s, batch_loss:1306.5473
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:6, batch:600, time:101.00s, batch_loss:1371.2162
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:6, batch:700, time:94.40s, batch_loss:1300.1762
+sentence_shape: torch.Size([32, 92])
+sample loss: epoch:6, batch:800, time:100.89s, batch_loss:1328.4005
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:6, batch:900, time:92.77s, batch_loss:1280.1877
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:6, batch:1000, time:105.09s, batch_loss:1402.1014
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:6, batch:1100, time:104.61s, batch_loss:1377.8202
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:6, batch:1200, time:98.08s, batch_loss:1301.8930
+sentence_shape: torch.Size([32, 746])
+sample loss: epoch:6, batch:1300, time:127.16s, batch_loss:1866.1344
+Epoch:6 training finished. Time: 1427.05s, speed: 0.03s/instance, total loss:2001954.1250
+Epoch_train_result: epoch:6, accuracy:0.9093, precision:0.3984, recall:0.2368, f_measure:0.2971 
+dev_result: epoch:6, time:119.39, accuracy:0.9481, precision:0.4346, recall:0.2608, f_measure:0.3260 
+training epoch: 7
+ Learning rate is setted as: 0.0007350918906249999
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:7, batch:100, time:100.71s, batch_loss:1321.9583
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:7, batch:200, time:104.95s, batch_loss:1418.4702
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:7, batch:300, time:103.15s, batch_loss:1418.2305
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:7, batch:400, time:97.38s, batch_loss:1273.7713
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:7, batch:500, time:94.69s, batch_loss:1295.2684
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:7, batch:600, time:90.57s, batch_loss:1233.1325
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:7, batch:700, time:100.02s, batch_loss:1369.3269
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:7, batch:800, time:101.40s, batch_loss:1449.3728
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:7, batch:900, time:130.15s, batch_loss:2810.2200
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:7, batch:1000, time:123.62s, batch_loss:2502.2036
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:7, batch:1100, time:140.83s, batch_loss:2966.1625
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:7, batch:1200, time:114.78s, batch_loss:2350.6009
+sentence_shape: torch.Size([32, 188])
+sample loss: epoch:7, batch:1300, time:107.90s, batch_loss:2096.6802
+Epoch:7 training finished. Time: 1527.99s, speed: 0.03s/instance, total loss:2564730.5000
+Epoch_train_result: epoch:7, accuracy:0.9092, precision:0.4000, recall:0.2382, f_measure:0.2985 
+dev_result: epoch:7, time:115.53, accuracy:0.9478, precision:0.4330, recall:0.2436, f_measure:0.3118 
+training epoch: 8
+ Learning rate is setted as: 0.0006983372960937497
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:8, batch:100, time:101.52s, batch_loss:1327.9783
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:8, batch:200, time:106.71s, batch_loss:1502.2175
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:8, batch:300, time:99.64s, batch_loss:1317.1434
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:8, batch:400, time:102.82s, batch_loss:1397.9323
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:8, batch:500, time:99.22s, batch_loss:1335.1312
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:8, batch:600, time:132.39s, batch_loss:1409.8189
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:8, batch:700, time:123.79s, batch_loss:1274.4101
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:8, batch:800, time:146.01s, batch_loss:2272.8828
+sentence_shape: torch.Size([32, 84])
+sample loss: epoch:8, batch:900, time:137.88s, batch_loss:2257.3342
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:8, batch:1000, time:141.44s, batch_loss:2325.8348
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:8, batch:1100, time:139.48s, batch_loss:2284.0514
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:8, batch:1200, time:135.70s, batch_loss:2235.1569
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:8, batch:1300, time:138.28s, batch_loss:2298.0709
+Epoch:8 training finished. Time: 1758.07s, speed: 0.04s/instance, total loss:2562397.2500
+Epoch_train_result: epoch:8, accuracy:0.9098, precision:0.4013, recall:0.2415, f_measure:0.3015 
+dev_result: epoch:8, time:130.01, accuracy:0.9496, precision:0.4877, recall:0.2662, f_measure:0.3444 
+training epoch: 9
+ Learning rate is setted as: 0.0006634204312890623
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:9, batch:100, time:127.48s, batch_loss:1464.5391
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:9, batch:200, time:113.68s, batch_loss:1284.7230
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:9, batch:300, time:127.22s, batch_loss:1394.9817
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:9, batch:400, time:134.51s, batch_loss:1459.9053
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:9, batch:500, time:126.45s, batch_loss:1379.4658
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:9, batch:600, time:124.29s, batch_loss:1325.4352
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:9, batch:700, time:112.00s, batch_loss:1274.1522
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:9, batch:800, time:120.71s, batch_loss:1269.3137
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:9, batch:900, time:119.45s, batch_loss:1265.7847
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:9, batch:1000, time:121.28s, batch_loss:1284.1789
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:9, batch:1100, time:125.55s, batch_loss:1347.9034
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:9, batch:1200, time:147.04s, batch_loss:2178.6259
+sentence_shape: torch.Size([32, 121])
+sample loss: epoch:9, batch:1300, time:154.42s, batch_loss:2585.3420
+Epoch:9 training finished. Time: 1800.10s, speed: 0.04s/instance, total loss:2182777.0000
+Epoch_train_result: epoch:9, accuracy:0.9097, precision:0.4022, recall:0.2415, f_measure:0.3018 
+dev_result: epoch:9, time:131.70, accuracy:0.9496, precision:0.4666, recall:0.2696, f_measure:0.3418 
+training epoch: 10
+ Learning rate is setted as: 0.0006302494097246091
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:10, batch:100, time:141.01s, batch_loss:1907.3563
+sentence_shape: torch.Size([32, 92])
+sample loss: epoch:10, batch:200, time:149.50s, batch_loss:2584.1530
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:10, batch:300, time:139.03s, batch_loss:2266.3009
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:10, batch:400, time:138.84s, batch_loss:2210.8731
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:10, batch:500, time:133.68s, batch_loss:2226.4628
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:10, batch:600, time:156.38s, batch_loss:2439.6222
+sentence_shape: torch.Size([32, 118])
+sample loss: epoch:10, batch:700, time:149.08s, batch_loss:2425.8731
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:10, batch:800, time:147.22s, batch_loss:2412.9786
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:10, batch:900, time:134.72s, batch_loss:2317.5867
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:10, batch:1000, time:154.26s, batch_loss:2513.0509
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:10, batch:1100, time:165.25s, batch_loss:2950.0506
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:10, batch:1200, time:149.17s, batch_loss:2452.7367
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:10, batch:1300, time:139.80s, batch_loss:2371.5367
+Epoch:10 training finished. Time: 2042.22s, speed: 0.05s/instance, total loss:3335000.0000
+Epoch_train_result: epoch:10, accuracy:0.9096, precision:0.4010, recall:0.2411, f_measure:0.3011 
+dev_result: epoch:10, time:118.04, accuracy:0.9480, precision:0.4499, recall:0.2439, f_measure:0.3164 
+training epoch: 11
+ Learning rate is setted as: 0.0005987369392383787
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:11, batch:100, time:121.18s, batch_loss:1323.3180
+sentence_shape: torch.Size([32, 92])
+sample loss: epoch:11, batch:200, time:129.50s, batch_loss:1375.0145
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:11, batch:300, time:122.66s, batch_loss:1308.2349
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:11, batch:400, time:130.29s, batch_loss:1368.8755
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:11, batch:500, time:123.83s, batch_loss:1338.3595
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:11, batch:600, time:115.84s, batch_loss:1255.9403
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:11, batch:700, time:121.51s, batch_loss:1293.7034
+sentence_shape: torch.Size([32, 91])
+sample loss: epoch:11, batch:800, time:123.59s, batch_loss:1355.8112
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:11, batch:900, time:129.28s, batch_loss:1429.9261
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:11, batch:1000, time:125.52s, batch_loss:1313.6003
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:11, batch:1100, time:135.75s, batch_loss:1962.6141
+sentence_shape: torch.Size([32, 85])
+sample loss: epoch:11, batch:1200, time:139.78s, batch_loss:2307.9016
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:11, batch:1300, time:154.75s, batch_loss:2795.0819
+Epoch:11 training finished. Time: 1830.75s, speed: 0.04s/instance, total loss:2297792.5000
+Epoch_train_result: epoch:11, accuracy:0.9099, precision:0.4060, recall:0.2445, f_measure:0.3052 
+dev_result: epoch:11, time:118.81, accuracy:0.9484, precision:0.4460, recall:0.2476, f_measure:0.3185 
+training epoch: 12
+ Learning rate is setted as: 0.0005688000922764596
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:12, batch:100, time:120.62s, batch_loss:1312.3366
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:12, batch:200, time:132.21s, batch_loss:1379.1039
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:12, batch:300, time:119.47s, batch_loss:1341.7919
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:12, batch:400, time:117.75s, batch_loss:1299.5559
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:12, batch:500, time:121.51s, batch_loss:1342.9034
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:12, batch:600, time:114.16s, batch_loss:1302.0380
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:12, batch:700, time:136.35s, batch_loss:1549.0823
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:12, batch:800, time:125.85s, batch_loss:1360.1170
+sentence_shape: torch.Size([32, 154])
+sample loss: epoch:12, batch:900, time:128.79s, batch_loss:1324.9077
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:12, batch:1000, time:124.21s, batch_loss:1359.8756
+sentence_shape: torch.Size([32, 56])
+sample loss: epoch:12, batch:1100, time:146.25s, batch_loss:2100.5094
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:12, batch:1200, time:133.99s, batch_loss:2198.3155
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:12, batch:1300, time:148.19s, batch_loss:2466.9514
+Epoch:12 training finished. Time: 1826.48s, speed: 0.04s/instance, total loss:2292508.7500
+Epoch_train_result: epoch:12, accuracy:0.9104, precision:0.4049, recall:0.2451, f_measure:0.3054 
+dev_result: epoch:12, time:133.52, accuracy:0.9508, precision:0.4773, recall:0.3028, f_measure:0.3705 
+epoch:12 dev set exceed best f score0.3508
+training epoch: 13
+ Learning rate is setted as: 0.0005403600876626366
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:13, batch:100, time:126.58s, batch_loss:1343.4913
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:13, batch:200, time:120.38s, batch_loss:1297.5850
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:13, batch:300, time:121.58s, batch_loss:1305.8641
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:13, batch:400, time:121.49s, batch_loss:1333.6511
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:13, batch:500, time:105.04s, batch_loss:1288.8212
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:13, batch:600, time:94.38s, batch_loss:1289.6032
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:13, batch:700, time:101.98s, batch_loss:1331.0697
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:13, batch:800, time:103.07s, batch_loss:1516.1206
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:13, batch:900, time:95.15s, batch_loss:1330.9900
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:13, batch:1000, time:103.69s, batch_loss:1379.6766
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:13, batch:1100, time:93.03s, batch_loss:1276.9006
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:13, batch:1200, time:120.41s, batch_loss:2086.3298
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:13, batch:1300, time:118.83s, batch_loss:2332.7852
+Epoch:13 training finished. Time: 1558.20s, speed: 0.03s/instance, total loss:2169018.2500
+Epoch_train_result: epoch:13, accuracy:0.9103, precision:0.4062, recall:0.2459, f_measure:0.3063 
+dev_result: epoch:13, time:126.25, accuracy:0.9501, precision:0.4609, recall:0.2679, f_measure:0.3389 
+training epoch: 14
+ Learning rate is setted as: 0.0005133420832795048
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:14, batch:100, time:101.95s, batch_loss:1364.6992
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:14, batch:200, time:107.52s, batch_loss:1406.8664
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:14, batch:300, time:99.38s, batch_loss:1331.8744
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:14, batch:400, time:100.19s, batch_loss:1300.7380
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:14, batch:500, time:100.63s, batch_loss:1387.6886
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:14, batch:600, time:96.28s, batch_loss:1336.9442
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:14, batch:700, time:117.25s, batch_loss:1303.7690
+sentence_shape: torch.Size([32, 127])
+sample loss: epoch:14, batch:800, time:126.46s, batch_loss:1368.8969
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:14, batch:900, time:146.73s, batch_loss:2283.6328
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:14, batch:1000, time:145.80s, batch_loss:2445.7611
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:14, batch:1100, time:140.95s, batch_loss:2364.6830
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:14, batch:1200, time:150.61s, batch_loss:2648.2806
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:14, batch:1300, time:161.65s, batch_loss:2816.2325
+Epoch:14 training finished. Time: 1733.92s, speed: 0.04s/instance, total loss:2546738.0000
+Epoch_train_result: epoch:14, accuracy:0.9106, precision:0.4085, recall:0.2484, f_measure:0.3090 
+dev_result: epoch:14, time:123.08, accuracy:0.9500, precision:0.4609, recall:0.2882, f_measure:0.3547 
+training epoch: 15
+ Learning rate is setted as: 0.00048767497911552955
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:15, batch:100, time:118.94s, batch_loss:1301.5427
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:15, batch:200, time:121.20s, batch_loss:1316.7945
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:15, batch:300, time:142.59s, batch_loss:1577.6173
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:15, batch:400, time:113.45s, batch_loss:1278.5563
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:15, batch:500, time:125.94s, batch_loss:1301.2809
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:15, batch:600, time:117.78s, batch_loss:1305.3802
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:15, batch:700, time:119.52s, batch_loss:1294.7983
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:15, batch:800, time:118.98s, batch_loss:1267.2960
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:15, batch:900, time:125.80s, batch_loss:1336.4958
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:15, batch:1000, time:145.96s, batch_loss:2344.0973
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:15, batch:1100, time:153.10s, batch_loss:2536.5853
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:15, batch:1200, time:138.99s, batch_loss:2270.1441
+sentence_shape: torch.Size([32, 187])
+sample loss: epoch:15, batch:1300, time:153.32s, batch_loss:2606.2041
+Epoch:15 training finished. Time: 1848.75s, speed: 0.04s/instance, total loss:2403735.0000
+Epoch_train_result: epoch:15, accuracy:0.9107, precision:0.4072, recall:0.2481, f_measure:0.3084 
+dev_result: epoch:15, time:125.69, accuracy:0.9494, precision:0.4531, recall:0.2745, f_measure:0.3419 
+training epoch: 16
+ Learning rate is setted as: 0.000463291230159753
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:16, batch:100, time:144.76s, batch_loss:2086.1114
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:16, batch:200, time:134.49s, batch_loss:2134.7377
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:16, batch:300, time:147.67s, batch_loss:2410.3122
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:16, batch:400, time:138.61s, batch_loss:2370.4022
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:16, batch:500, time:150.01s, batch_loss:2463.5084
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:16, batch:600, time:166.35s, batch_loss:2785.8956
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:16, batch:700, time:142.26s, batch_loss:2298.8381
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:16, batch:800, time:145.02s, batch_loss:2428.6342
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:16, batch:900, time:143.04s, batch_loss:2354.4756
+sentence_shape: torch.Size([32, 669])
+sample loss: epoch:16, batch:1000, time:162.12s, batch_loss:2908.9681
+sentence_shape: torch.Size([32, 59])
+sample loss: epoch:16, batch:1100, time:142.01s, batch_loss:2332.3762
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:16, batch:1200, time:162.93s, batch_loss:2776.4441
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:16, batch:1300, time:147.01s, batch_loss:2371.3025
+Epoch:16 training finished. Time: 2075.19s, speed: 0.05s/instance, total loss:3408521.7500
+Epoch_train_result: epoch:16, accuracy:0.9110, precision:0.4112, recall:0.2513, f_measure:0.3120 
+dev_result: epoch:16, time:124.19, accuracy:0.9504, precision:0.4925, recall:0.2702, f_measure:0.3489 
+training epoch: 17
+ Learning rate is setted as: 0.00044012666865176535
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:17, batch:100, time:121.27s, batch_loss:1290.9904
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:17, batch:200, time:109.70s, batch_loss:1207.0177
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:17, batch:300, time:126.18s, batch_loss:1321.2013
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:17, batch:400, time:130.12s, batch_loss:1369.2819
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:17, batch:500, time:137.21s, batch_loss:1503.3353
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:17, batch:600, time:117.24s, batch_loss:1299.0075
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:17, batch:700, time:129.72s, batch_loss:1390.0941
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:17, batch:800, time:116.82s, batch_loss:1289.1548
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:17, batch:900, time:124.01s, batch_loss:1404.2419
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:17, batch:1000, time:142.58s, batch_loss:1692.0175
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:17, batch:1100, time:143.75s, batch_loss:2321.4878
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:17, batch:1200, time:146.81s, batch_loss:2440.7894
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:17, batch:1300, time:147.86s, batch_loss:2396.6206
+Epoch:17 training finished. Time: 1836.52s, speed: 0.04s/instance, total loss:2319351.7500
+Epoch_train_result: epoch:17, accuracy:0.9112, precision:0.4126, recall:0.2534, f_measure:0.3140 
+dev_result: epoch:17, time:123.61, accuracy:0.9483, precision:0.4488, recall:0.2405, f_measure:0.3132 
+training epoch: 18
+ Learning rate is setted as: 0.0004181203352191771
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 126])
+sample loss: epoch:18, batch:100, time:119.95s, batch_loss:1315.5106
+sentence_shape: torch.Size([32, 87])
+sample loss: epoch:18, batch:200, time:161.75s, batch_loss:2729.5891
+sentence_shape: torch.Size([32, 88])
+sample loss: epoch:18, batch:300, time:146.86s, batch_loss:2359.2272
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:18, batch:400, time:142.35s, batch_loss:2392.5502
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:18, batch:500, time:137.94s, batch_loss:2294.9181
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:18, batch:600, time:160.69s, batch_loss:2767.4497
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:18, batch:700, time:151.98s, batch_loss:2523.9530
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:18, batch:800, time:142.09s, batch_loss:2464.4831
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:18, batch:900, time:156.20s, batch_loss:2789.8925
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:18, batch:1000, time:142.71s, batch_loss:2431.6192
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:18, batch:1100, time:144.05s, batch_loss:2381.7969
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:18, batch:1200, time:151.38s, batch_loss:2556.5203
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:18, batch:1300, time:141.60s, batch_loss:2325.6537
+Epoch:18 training finished. Time: 2051.12s, speed: 0.05s/instance, total loss:3379576.0000
+Epoch_train_result: epoch:18, accuracy:0.9111, precision:0.4124, recall:0.2529, f_measure:0.3135 
+dev_result: epoch:18, time:122.20, accuracy:0.9494, precision:0.4740, recall:0.2548, f_measure:0.3314 
+training epoch: 19
+ Learning rate is setted as: 0.0003972143184582182
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:19, batch:100, time:131.37s, batch_loss:1397.1766
+sentence_shape: torch.Size([32, 123])
+sample loss: epoch:19, batch:200, time:118.87s, batch_loss:1325.3442
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:19, batch:300, time:125.84s, batch_loss:1354.8720
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:19, batch:400, time:121.70s, batch_loss:2314.7545
+sentence_shape: torch.Size([32, 664])
+sample loss: epoch:19, batch:500, time:138.44s, batch_loss:2873.5472
+sentence_shape: torch.Size([32, 89])
+sample loss: epoch:19, batch:600, time:114.33s, batch_loss:2356.3120
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:19, batch:700, time:115.79s, batch_loss:2452.6498
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:19, batch:800, time:117.44s, batch_loss:2433.7278
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:19, batch:900, time:123.69s, batch_loss:2505.1306
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:19, batch:1000, time:123.11s, batch_loss:2511.4297
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:19, batch:1100, time:120.84s, batch_loss:2425.0773
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:19, batch:1200, time:118.09s, batch_loss:2458.6545
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:19, batch:1300, time:110.25s, batch_loss:2238.9675
+Epoch:19 training finished. Time: 1693.59s, speed: 0.04s/instance, total loss:3079021.5000
+Epoch_train_result: epoch:19, accuracy:0.9116, precision:0.4141, recall:0.2552, f_measure:0.3158 
+dev_result: epoch:19, time:118.88, accuracy:0.9503, precision:0.4540, recall:0.2802, f_measure:0.3465 
+training epoch: 20
+ Learning rate is setted as: 0.00037735360253530727
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:20, batch:100, time:93.24s, batch_loss:1243.2125
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:20, batch:200, time:127.21s, batch_loss:2113.9302
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:20, batch:300, time:116.42s, batch_loss:2309.5009
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:20, batch:400, time:114.63s, batch_loss:2455.5077
+sentence_shape: torch.Size([32, 110])
+sample loss: epoch:20, batch:500, time:139.98s, batch_loss:2892.4816
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:20, batch:600, time:121.62s, batch_loss:2561.8092
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:20, batch:700, time:114.92s, batch_loss:2354.1897
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:20, batch:800, time:118.74s, batch_loss:2528.6722
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:20, batch:900, time:124.28s, batch_loss:2509.7842
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:20, batch:1000, time:126.94s, batch_loss:2655.3909
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:20, batch:1100, time:113.41s, batch_loss:2321.1056
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:20, batch:1200, time:116.19s, batch_loss:2314.1588
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:20, batch:1300, time:120.41s, batch_loss:2416.9420
+Epoch:20 training finished. Time: 1663.91s, speed: 0.04s/instance, total loss:3279556.7500
+Epoch_train_result: epoch:20, accuracy:0.9118, precision:0.4175, recall:0.2590, f_measure:0.3197 
+dev_result: epoch:20, time:109.45, accuracy:0.9496, precision:0.4781, recall:0.2585, f_measure:0.3356 
+training epoch: 21
+ Learning rate is setted as: 0.0003584859224085419
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:100, time:91.46s, batch_loss:1251.8409
+sentence_shape: torch.Size([32, 125])
+sample loss: epoch:21, batch:200, time:98.22s, batch_loss:1298.2042
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:21, batch:300, time:111.70s, batch_loss:1451.5952
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:400, time:105.67s, batch_loss:1391.2670
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:21, batch:500, time:103.43s, batch_loss:1470.1042
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:21, batch:600, time:102.30s, batch_loss:1333.0130
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:700, time:100.63s, batch_loss:1394.4673
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:800, time:98.74s, batch_loss:1280.0940
+sentence_shape: torch.Size([32, 92])
+sample loss: epoch:21, batch:900, time:90.93s, batch_loss:1231.2220
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:1000, time:126.70s, batch_loss:2550.6761
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:21, batch:1100, time:120.79s, batch_loss:2417.0605
+sentence_shape: torch.Size([32, 88])
+sample loss: epoch:21, batch:1200, time:113.77s, batch_loss:2336.0858
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:21, batch:1300, time:115.77s, batch_loss:2275.0116
+Epoch:21 training finished. Time: 1505.61s, speed: 0.03s/instance, total loss:2398820.2500
+Epoch_train_result: epoch:21, accuracy:0.9117, precision:0.4155, recall:0.2558, f_measure:0.3167 
+dev_result: epoch:21, time:124.43, accuracy:0.9492, precision:0.4518, recall:0.2568, f_measure:0.3274 
+training epoch: 22
+ Learning rate is setted as: 0.0003405616262881148
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:22, batch:100, time:97.10s, batch_loss:1286.5927
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:22, batch:200, time:120.18s, batch_loss:1976.0250
+sentence_shape: torch.Size([32, 190])
+sample loss: epoch:22, batch:300, time:130.04s, batch_loss:2649.2888
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:22, batch:400, time:131.72s, batch_loss:2682.5816
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:22, batch:500, time:130.12s, batch_loss:2691.0481
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:22, batch:600, time:121.83s, batch_loss:2542.9870
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:22, batch:700, time:117.12s, batch_loss:2333.6797
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:22, batch:800, time:109.14s, batch_loss:2203.7830
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:22, batch:900, time:119.65s, batch_loss:2266.3863
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:22, batch:1000, time:117.40s, batch_loss:2286.5230
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:22, batch:1100, time:118.34s, batch_loss:2380.7067
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:22, batch:1200, time:132.27s, batch_loss:2555.5405
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:22, batch:1300, time:131.47s, batch_loss:2617.4352
+Epoch:22 training finished. Time: 1692.53s, speed: 0.04s/instance, total loss:3251805.7500
+Epoch_train_result: epoch:22, accuracy:0.9121, precision:0.4190, recall:0.2594, f_measure:0.3204 
+dev_result: epoch:22, time:119.43, accuracy:0.9484, precision:0.4332, recall:0.2454, f_measure:0.3133 
+training epoch: 23
+ Learning rate is setted as: 0.000323533544973709
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:23, batch:100, time:95.05s, batch_loss:1275.5612
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:23, batch:200, time:117.39s, batch_loss:1467.7022
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:23, batch:300, time:108.71s, batch_loss:1355.5053
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:23, batch:400, time:99.55s, batch_loss:1325.2331
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:23, batch:500, time:104.92s, batch_loss:1305.7378
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:23, batch:600, time:106.38s, batch_loss:1356.1012
+sentence_shape: torch.Size([32, 222])
+sample loss: epoch:23, batch:700, time:101.74s, batch_loss:1271.2015
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:23, batch:800, time:102.00s, batch_loss:1286.7273
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:23, batch:900, time:100.09s, batch_loss:1308.2086
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:23, batch:1000, time:96.74s, batch_loss:1268.4241
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:23, batch:1100, time:107.35s, batch_loss:1393.2525
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:23, batch:1200, time:133.35s, batch_loss:2027.2570
+sentence_shape: torch.Size([32, 88])
+sample loss: epoch:23, batch:1300, time:112.62s, batch_loss:2235.7484
+Epoch:23 training finished. Time: 1511.64s, speed: 0.03s/instance, total loss:2133239.2500
+Epoch_train_result: epoch:23, accuracy:0.9122, precision:0.4207, recall:0.2606, f_measure:0.3218 
+dev_result: epoch:23, time:120.60, accuracy:0.9512, precision:0.4645, recall:0.3005, f_measure:0.3649 
+training epoch: 24
+ Learning rate is setted as: 0.00030735686772502356
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:24, batch:100, time:102.94s, batch_loss:1336.8112
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:24, batch:200, time:134.09s, batch_loss:2362.4442
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:24, batch:300, time:124.37s, batch_loss:2462.8525
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:24, batch:400, time:106.87s, batch_loss:2150.4775
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:24, batch:500, time:138.13s, batch_loss:2720.4328
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:24, batch:600, time:118.99s, batch_loss:2297.0456
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:24, batch:700, time:115.28s, batch_loss:2279.2055
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:24, batch:800, time:131.59s, batch_loss:2600.2036
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:24, batch:900, time:134.09s, batch_loss:2584.8127
+sentence_shape: torch.Size([32, 152])
+sample loss: epoch:24, batch:1000, time:122.17s, batch_loss:2524.8041
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:24, batch:1100, time:139.19s, batch_loss:2828.5806
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:24, batch:1200, time:110.98s, batch_loss:2152.1467
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:24, batch:1300, time:120.57s, batch_loss:2370.3411
+Epoch:24 training finished. Time: 1719.62s, speed: 0.04s/instance, total loss:3280373.0000
+Epoch_train_result: epoch:24, accuracy:0.9120, precision:0.4171, recall:0.2587, f_measure:0.3194 
+dev_result: epoch:24, time:123.07, accuracy:0.9491, precision:0.4469, recall:0.2548, f_measure:0.3245 
+training epoch: 25
+ Learning rate is setted as: 0.0002919890243387724
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:25, batch:100, time:97.63s, batch_loss:1290.3977
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:200, time:106.73s, batch_loss:1351.9133
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:25, batch:300, time:111.66s, batch_loss:1375.7148
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:400, time:127.72s, batch_loss:2508.2259
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:500, time:130.70s, batch_loss:2413.8336
+sentence_shape: torch.Size([32, 92])
+sample loss: epoch:25, batch:600, time:127.78s, batch_loss:2524.7398
+sentence_shape: torch.Size([32, 124])
+sample loss: epoch:25, batch:700, time:117.05s, batch_loss:2286.1536
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:800, time:121.15s, batch_loss:2335.6648
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:900, time:129.02s, batch_loss:2486.5053
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:1000, time:120.61s, batch_loss:2268.0006
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:25, batch:1100, time:112.32s, batch_loss:2341.7086
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:25, batch:1200, time:146.16s, batch_loss:2878.8372
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:25, batch:1300, time:134.89s, batch_loss:2624.0950
+Epoch:25 training finished. Time: 1709.60s, speed: 0.04s/instance, total loss:3082124.0000
+Epoch_train_result: epoch:25, accuracy:0.9123, precision:0.4200, recall:0.2601, f_measure:0.3212 
+dev_result: epoch:25, time:121.50, accuracy:0.9514, precision:0.4693, recall:0.3011, f_measure:0.3668 
+training epoch: 26
+ Learning rate is setted as: 0.00027738957312183375
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:100, time:111.49s, batch_loss:1328.7727
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:26, batch:200, time:108.37s, batch_loss:1447.0553
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:26, batch:300, time:104.19s, batch_loss:1364.6358
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:26, batch:400, time:100.50s, batch_loss:1300.5743
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:26, batch:500, time:107.07s, batch_loss:1342.5170
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:600, time:100.74s, batch_loss:1311.2297
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:26, batch:700, time:107.53s, batch_loss:1334.5031
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:800, time:107.74s, batch_loss:1366.3925
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:26, batch:900, time:112.60s, batch_loss:1385.4761
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:1000, time:101.41s, batch_loss:1369.2847
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:1100, time:94.12s, batch_loss:1213.3287
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:26, batch:1200, time:99.37s, batch_loss:1324.3172
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:26, batch:1300, time:108.52s, batch_loss:1334.8470
+Epoch:26 training finished. Time: 1500.62s, speed: 0.03s/instance, total loss:1974726.2500
+Epoch_train_result: epoch:26, accuracy:0.9121, precision:0.4205, recall:0.2612, f_measure:0.3222 
+dev_result: epoch:26, time:122.05, accuracy:0.9500, precision:0.4466, recall:0.2736, f_measure:0.3394 
+training epoch: 27
+ Learning rate is setted as: 0.00026352009446574203
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 127])
+sample loss: epoch:27, batch:100, time:138.45s, batch_loss:2487.7475
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:27, batch:200, time:119.91s, batch_loss:2261.0078
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:27, batch:300, time:136.80s, batch_loss:2669.6962
+sentence_shape: torch.Size([32, 56])
+sample loss: epoch:27, batch:400, time:136.97s, batch_loss:2687.3762
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:27, batch:500, time:118.54s, batch_loss:2311.8303
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:27, batch:600, time:122.01s, batch_loss:2470.6312
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:27, batch:700, time:112.02s, batch_loss:2183.3428
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:27, batch:800, time:120.35s, batch_loss:2348.5691
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:27, batch:900, time:139.92s, batch_loss:2873.1272
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:27, batch:1000, time:131.79s, batch_loss:2638.6341
+sentence_shape: torch.Size([32, 87])
+sample loss: epoch:27, batch:1100, time:132.67s, batch_loss:2627.2166
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:27, batch:1200, time:132.98s, batch_loss:2549.2567
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:27, batch:1300, time:119.41s, batch_loss:2181.1281
+Epoch:27 training finished. Time: 1778.56s, speed: 0.04s/instance, total loss:3439274.5000
+Epoch_train_result: epoch:27, accuracy:0.9124, precision:0.4218, recall:0.2629, f_measure:0.3239 
+dev_result: epoch:27, time:128.52, accuracy:0.9497, precision:0.4559, recall:0.2645, f_measure:0.3348 
+training epoch: 28
+ Learning rate is setted as: 0.00025034408974245495
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:28, batch:100, time:107.18s, batch_loss:1389.5958
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:28, batch:200, time:101.91s, batch_loss:1302.0185
+sentence_shape: torch.Size([32, 122])
+sample loss: epoch:28, batch:300, time:121.34s, batch_loss:2037.6030
+sentence_shape: torch.Size([32, 89])
+sample loss: epoch:28, batch:400, time:122.27s, batch_loss:2417.5850
+sentence_shape: torch.Size([32, 57])
+sample loss: epoch:28, batch:500, time:121.87s, batch_loss:2378.6433
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:28, batch:600, time:123.64s, batch_loss:2432.3748
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:28, batch:700, time:127.70s, batch_loss:2419.6239
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:28, batch:800, time:125.57s, batch_loss:2513.4452
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:28, batch:900, time:142.02s, batch_loss:2768.4925
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:28, batch:1000, time:132.27s, batch_loss:2608.1530
+sentence_shape: torch.Size([32, 53])
+sample loss: epoch:28, batch:1100, time:118.90s, batch_loss:2332.9458
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:28, batch:1200, time:138.02s, batch_loss:2717.2669
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:28, batch:1300, time:115.34s, batch_loss:2239.1005
+Epoch:28 training finished. Time: 1715.69s, speed: 0.04s/instance, total loss:3158704.0000
+Epoch_train_result: epoch:28, accuracy:0.9124, precision:0.4213, recall:0.2622, f_measure:0.3232 
+dev_result: epoch:28, time:124.65, accuracy:0.9509, precision:0.4690, recall:0.2979, f_measure:0.3644 
+training epoch: 29
+ Learning rate is setted as: 0.00023782688525533216
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:29, batch:100, time:99.99s, batch_loss:1284.2764
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:29, batch:200, time:142.05s, batch_loss:2300.6536
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:29, batch:300, time:138.05s, batch_loss:2523.9566
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:29, batch:400, time:118.88s, batch_loss:2381.4262
+sentence_shape: torch.Size([32, 60])
+sample loss: epoch:29, batch:500, time:118.25s, batch_loss:2280.8828
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:29, batch:600, time:120.00s, batch_loss:2308.1638
+sentence_shape: torch.Size([32, 91])
+sample loss: epoch:29, batch:700, time:121.15s, batch_loss:2303.0772
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:29, batch:800, time:111.12s, batch_loss:2202.0816
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:29, batch:900, time:121.70s, batch_loss:2281.6836
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:29, batch:1000, time:127.49s, batch_loss:2529.3045
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:29, batch:1100, time:127.85s, batch_loss:2373.9966
+sentence_shape: torch.Size([32, 301])
+sample loss: epoch:29, batch:1200, time:153.72s, batch_loss:2921.0391
+sentence_shape: torch.Size([32, 56])
+sample loss: epoch:29, batch:1300, time:118.05s, batch_loss:2180.2964
+Epoch:29 training finished. Time: 1749.18s, speed: 0.04s/instance, total loss:3228419.2500
+Epoch_train_result: epoch:29, accuracy:0.9123, precision:0.4202, recall:0.2614, f_measure:0.3223 
+dev_result: epoch:29, time:120.31, accuracy:0.9504, precision:0.4743, recall:0.2662, f_measure:0.3410 
+training epoch: 30
+ Learning rate is setted as: 0.00022593554099256555
+训练数据总量： 44625
+sentence_shape: torch.Size([32, 93])
+sample loss: epoch:30, batch:100, time:96.32s, batch_loss:1288.2830
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:30, batch:200, time:107.62s, batch_loss:1365.0206
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:30, batch:300, time:111.30s, batch_loss:1435.4073
+sentence_shape: torch.Size([32, 159])
+sample loss: epoch:30, batch:400, time:112.96s, batch_loss:1366.1181
+sentence_shape: torch.Size([32, 63])
+sample loss: epoch:30, batch:500, time:116.72s, batch_loss:1469.0278
+sentence_shape: torch.Size([32, 31])
+sample loss: epoch:30, batch:600, time:103.56s, batch_loss:1289.3847
+sentence_shape: torch.Size([32, 95])
+sample loss: epoch:30, batch:700, time:96.26s, batch_loss:1285.7315
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:30, batch:800, time:108.69s, batch_loss:1704.2436
+sentence_shape: torch.Size([32, 90])
+sample loss: epoch:30, batch:900, time:140.54s, batch_loss:2749.1031
+sentence_shape: torch.Size([32, 62])
+sample loss: epoch:30, batch:1000, time:127.94s, batch_loss:2441.6453
+sentence_shape: torch.Size([32, 30])
+sample loss: epoch:30, batch:1100, time:110.91s, batch_loss:2201.3359
+sentence_shape: torch.Size([32, 61])
+sample loss: epoch:30, batch:1200, time:128.43s, batch_loss:2509.0236
+sentence_shape: torch.Size([32, 94])
+sample loss: epoch:30, batch:1300, time:127.28s, batch_loss:2475.8958
+Epoch:30 training finished. Time: 1604.18s, speed: 0.04s/instance, total loss:2557815.7500
+Epoch_train_result: epoch:30, accuracy:0.9124, precision:0.4206, recall:0.2622, f_measure:0.3230 
+dev_result: epoch:30, time:129.06, accuracy:0.9507, precision:0.4518, recall:0.2799, f_measure:0.3457 
+loss list: [3863695.75, 2789943.75, 2796045.0, 2145602.75, 2813935.0, 2001954.125, 2564730.5, 2562397.25, 2182777.0, 3335000.0, 2297792.5, 2292508.75, 2169018.25, 2546738.0, 2403735.0, 3408521.75, 2319351.75, 3379576.0, 3079021.5, 3279556.75, 2398820.25, 3251805.75, 2133239.25, 3280373.0, 3082124.0, 1974726.25, 3439274.5, 3158704.0, 3228419.25, 2557815.75]
+train f1 list: [0.08146974096740979, 0.2491592649446757, 0.27782385280311905, 0.28404771378501703, 0.2917933130699088, 0.29708280790248, 0.2985473395898272, 0.3015340324213945, 0.301798934709055, 0.30114440230722217, 0.30519790176442535, 0.3053839217127017, 0.30633970393006543, 0.30895542293201744, 0.30835734870317, 0.3119633943427621, 0.31396942190627253, 0.3135241134044604, 0.31581915281785916, 0.31965918021259876, 0.3166775898256996, 0.32039606583435437, 0.32181967172406944, 0.319351369239679, 0.321222506436205, 0.32223976980511154, 0.3239119126062077, 0.32321663182422883, 0.3223343332424325, 0.3230174720084552]
+train precision list: [0.2975073933248838, 0.36853295535081504, 0.38357296314658734, 0.3854867988694593, 0.39417856654044436, 0.3984170650311175, 0.3999684833749803, 0.40134114554325306, 0.4021695460024106, 0.4010345827108743, 0.4059919424844748, 0.4049200655418272, 0.40615936413753406, 0.40848578355741677, 0.40719313682358116, 0.41118031492609325, 0.41263015432974615, 0.41240764219822496, 0.41408254686208845, 0.4174534926430871, 0.41548207327426695, 0.41895812583899883, 0.420679059098483, 0.41713495288320224, 0.41996580012554385, 0.4205097218325816, 0.42176110095688635, 0.4213360908248777, 0.42024176345105474, 0.42059089149787127]
+train recall list: [0.04719712608241066, 0.18819870780944212, 0.217782365084046, 0.22487332779282057, 0.2316291788423903, 0.2368435162596177, 0.2381571539637007, 0.2414814616230128, 0.24152167502211738, 0.24109273209833518, 0.2444974665558564, 0.24512747647516153, 0.24590493552451678, 0.24842497520173723, 0.24813007694163694, 0.2513203399372671, 0.25338462775796894, 0.25288866250234576, 0.2552478485831479, 0.258987694699874, 0.25583764510334844, 0.2593764242245516, 0.2605828261976891, 0.25870620090614194, 0.2600734564756977, 0.261199431650626, 0.2629152033457548, 0.26216455322913595, 0.26142730757888527, 0.26219136216187233]
+dev f1 list: [0.2344249201277955, 0.27356675644478645, 0.27760134504016437, 0.3508322663252241, 0.3459707282666197, 0.32595501606569083, 0.3118259915920307, 0.344419807834442, 0.3417813178855902, 0.3163548805334321, 0.3184573002754821, 0.3704998252359315, 0.3388728323699422, 0.3546572934973638, 0.34187122020633226, 0.34894872740686095, 0.31318579133345736, 0.33141370982723384, 0.3465206640762981, 0.3355580274378939, 0.32744490985248587, 0.3132749817651349, 0.36489767603191126, 0.3245406585410224, 0.3668000696015313, 0.33935529578462625, 0.3347794649313087, 0.3643668122270743, 0.34101719721917306, 0.345679012345679]
+dev precision list: [0.38951559389515594, 0.4189746611667649, 0.4011879049676026, 0.48779247202441506, 0.452073732718894, 0.43455497382198954, 0.43299492385786803, 0.48770277341705914, 0.4666337123084528, 0.4499473129610116, 0.44598765432098764, 0.47726249437190454, 0.46093366093366095, 0.46094106898126996, 0.4530881659594531, 0.4924518479958355, 0.4488272921108742, 0.47396386822529224, 0.45395650161962053, 0.4780771262546223, 0.45175879396984925, 0.4331820474029249, 0.46445916114790287, 0.4468937875751503, 0.4692787177203918, 0.4466200466200466, 0.45593303791235845, 0.4689748201438849, 0.47430025445292623, 0.45182111572153066]
+dev recall list: [0.16766638103399029, 0.20308483290488433, 0.212225078548986, 0.27392173664667235, 0.2802056555269923, 0.2607826335332762, 0.24364467295058553, 0.2662096543844616, 0.26963724650099974, 0.24393030562696372, 0.24764353041988005, 0.3027706369608683, 0.26792345044273064, 0.28820337046558125, 0.2744930019994287, 0.27020851185375605, 0.2405027135104256, 0.25478434732933447, 0.2802056555269923, 0.2584975721222508, 0.25678377606398173, 0.2453584690088546, 0.3004855755498429, 0.25478434732933447, 0.30105684090259927, 0.2736361039702942, 0.2644958583261925, 0.29791488146243933, 0.2662096543844616, 0.2799200228506141]
+
+
+ self.model_name = 'universal'
+        self.max_step = 4
+        self.d_model = 256
+        self.d_ff = 1024
+        self.k_dim = 64
+        self.head = 4
+        self.p_drop = 0.1
+        self.threshold = 0.99
+        self.batch_size = 32
+        self.lr = 0.001
+        self.lr_decay = 0.05
+        self.regularization=0.008
+        self.epoch_num=30
+        self.momentum =0.9
+
+SGD 优化器

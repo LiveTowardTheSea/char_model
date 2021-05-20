@@ -48,6 +48,7 @@ class Vocab:
         """"
         想要加载的无外乎三个 vocab_list itos stoi
         """
+        # 但是如果这样加载的话，不管是itos 还是stoi ,其中的编号都是字符级别的。
         try:
             with codecs.open(file_path + os.sep + "vocab_list.txt", 'r', 'utf-8') as f1:
                 self.vocab_list = json.load(f1)
@@ -55,6 +56,11 @@ class Vocab:
                 self.itos = json.load(f2)
             with codecs.open(file_path + os.sep + "stoi.txt", 'r', 'utf-8') as f3:
                 self.stoi = json.load(f3)
+            # 这时的 itos 经过序列化反序列化，key已经变为str类型，我们需要将其变为int类型
+            itos = {}
+            for key,value in self.itos.items():
+                itos[int(key)] = value
+            self.itos = itos
             if 'tag' in self.vocab_type:
                 self.pad_idx = len(self.itos) - 1
         except Exception:

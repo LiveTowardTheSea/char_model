@@ -1,1 +1,1 @@
-{"O": 0, "B-LOC": 1, "I-LOC": 2, "B-ORG": 3, "I-ORG": 4, "B-PER": 5, "I-PER": 6, "</pad>": 7}
+{"O": 0, "S-LOC": 1, "B-LOC": 2, "E-LOC": 3, "B-ORG": 4, "I-ORG": 5, "E-ORG": 6, "I-LOC": 7, "B-PER": 8, "I-PER": 9, "E-PER": 10, "S-PER": 11, "S-ORG": 12, "</pad>": 13}

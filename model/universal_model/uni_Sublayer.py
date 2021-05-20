@@ -9,6 +9,7 @@ class Multi_Head_Attention(nn.Module):
         # 输入输出均为 d_model  v_dim = d_model / head_num
         super(Multi_Head_Attention, self).__init__()
         self.head = config.head
+        self.k_dim = config.k_dim
         self.q_multi_linear = nn.Linear(config.d_model, config.d_model)
         self.k_multi_linear = nn.Linear(config.d_model, config.d_model)
         self.v_multi_linear = nn.Linear(config.d_model, config.d_model)
@@ -30,22 +31,23 @@ class Multi_Head_Attention(nn.Module):
         query = query.view(query.shape[0], query.shape[1], self.head, -1)
         key = key.view(key.shape[0], key.shape[1], self.head, -1)
         value = value.view(value.shape[0], value.shape[1], self.head, -1)
-        query = query.permute(0, 2, 1, 3)
-        key = key.permute(0, 2, 3, 1)
-        value = value.permute(0, 2, 1, 3)
+        query = query.permute(0, 2, 1, 3).contiguous()
+        key = key.permute(0, 2, 3, 1).contiguous()
+        value = value.permute(0, 2, 1, 3).contiguous()
         qk_result = query.matmul(key)
         qk_result = qk_result / math.sqrt(self.k_dim)  # (batch_Size, head_num, q_seq_len, k_seq_len)
         if mask is not None:
             mask = mask.unsqueeze(1)
             mask = mask.unsqueeze(2)
             # print('mask shape:', mask.shape)
-            qk_result = qk_result.masked_fill(mask, 1e-10)
+            qk_result = qk_result.masked_fill(mask, -1e10)
         qk_result = F.softmax(qk_result, dim=3)  # (batch_size,head_num,q_seq_len,k_seq_len)
         qkv_result = qk_result.matmul(value)  # (batch_size,head_num,q_seq_len,v_dim)
         qkv_result = qkv_result.permute(0, 2, 1, 3)
         qkv_result = qkv_result.contiguous().view(qkv_result.shape[0], qkv_result.shape[1], -1)
         qkv_result = self.o_matrix(qkv_result)
         qkv_result = self.dropout(qkv_result)
+        #return qkv_result, qk_result
         return qkv_result
 
 
@@ -68,14 +70,14 @@ class LayerNorm(nn.Module):
 
 class FCNN_transition_func(nn.Module):
     # FCNN encoder的第二层
-    def __init__(self, config, first_weight, first_bias, second_weight, second_bias):
+    def __init__(self, config,first_weight_param, first_bias_param,second_weight_param,second_bias_param):
         super(FCNN_transition_func, self).__init__()
         self.fc1 = nn.Linear(config.d_model, config.d_ff)
+        self.fc1.weight = first_weight_param
+        self.fc1.bias =first_bias_param
         self.fc2 = nn.Linear(config.d_ff, config.d_model)
-        self.fc1.weight = first_weight
-        self.fc1.bias = first_bias
-        self.fc2.weight = second_weight
-        self.fc2.bias = second_bias
+        self.fc2.weight = second_weight_param
+        self.fc2.bias = second_bias_param
         self.dropout = nn.Dropout(config.p_drop)
 
     def forward(self, x):
@@ -89,7 +91,7 @@ class Time_Pos_Encoding(nn.Module):
     # 每一个子层都有的时间位置-双重编码
     def __init__(self, config, time_step):
         super(Time_Pos_Encoding, self).__init__()
-        self.time_step = time_step
+        self.time_step = time_step + 1
         self.d_model = config.d_model
 
     def forward(self, x, use_gpu):

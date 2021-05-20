@@ -1,7 +1,6 @@
 
 import torch
 import torch.nn as nn
-import universal_config
 from uni_Encoder_Layer import *
 import torch.nn.functional as F
 
@@ -12,17 +11,17 @@ class Encoder(nn.Module):
         self.config = config
         # 定义input embedding system
         self.embed = nn.Embedding(src_embedding_num, embedding_dim_size)
-        self.embedding.weight.data.copy_(torch.from_numpy(embedding_matrix))
-        self.trans_matrix = nn.Linear(embedding_dim_size, config.d_model)
-        # 因为转移函数要共享参数，所以我们这里直接定义一些列参数，然后传递到每一层里去。
+        self.embed.weight.data.copy_(torch.from_numpy(embedding_matrix))
+        #因为转移函数要共享参数，所以我们这里直接定义一些列参数，然后传递到每一层里去。
         self.first_weight_param = nn.Parameter(torch.randn(config.d_ff, config.d_model))
         self.first_bias_param = nn.Parameter(torch.randn(config.d_ff))
         self.second_weight_param = nn.Parameter(torch.randn(config.d_model, config.d_ff))
         self.second_bias_param = nn.Parameter(torch.randn(config.d_model))
-        # 下面，我们定义每一个layer, 传过去当前在第几层，并且传递我们需要共享的参数。
+        #下面，我们定义每一个layer, 传过去当前在第几层，并且传递我们需要共享的参数。
         self.encoder_layer = nn.ModuleList([Encoder_Layer(config, i, self.first_weight_param, self.first_bias_param,
                                                           self.second_weight_param, self.second_bias_param) for i in
                                             range(config.max_step)])
+        #self.encoder_layer = nn.ModuleList([Encoder_Layer(config, i) for i in range(config.max_step)])
         # 用于决定当前token是否在该步骤停止计算
         self.trans_halting_prob = nn.Linear(config.d_model, 1)
 
@@ -33,11 +32,9 @@ class Encoder(nn.Module):
             return False
 
 
-    def forward(self, src, mask=None, use_gpu=True):
+    def forward(self, src, mask=None, use_gpu=True, return_attn=False):
         # src(batch_size,seq_len)
         src_ = self.embed(src)
-        src_ = self.trans_matrix(src_)
-
         # (batch_size,seq_len,d_model)
         # 当前的状态 经过第一个layer之后
         state = src_
@@ -50,6 +47,8 @@ class Encoder(nn.Module):
         # 累加每一个位置更新个数
         updates_num = torch.zeros(state.size()[0], state.size()[1])
         # 加载到 gpu 上面
+        # 是否需要返回每一层的注意力矩阵
+        atten_list = []
         if use_gpu:
             previous_state = previous_state.cuda()
             halting_prob = halting_prob.cuda()
@@ -62,7 +61,6 @@ class Encoder(nn.Module):
             if not self.continue_loop_condition(halting_prob):
                 break
             # 当intermediate prob  停止概率 是什么
-            state = self.encoder_layer[i](state, mask, use_gpu)
             p = self.trans_halting_prob(state)
             p = F.sigmoid(p).squeeze(-1)  # (batch_size,seq_len)
             # 首先 我们获得 当前还没有停止的所有batch 及其 symbol pos
@@ -84,6 +82,10 @@ class Encoder(nn.Module):
             # new_halt  权重为 remainder
             # 早就停止的，权重为 0
             # 经过当前步骤仍然不停止的，权重为 p
+            #state, attention = self.encoder_layer[i](state, mask, use_gpu)
+            state = self.encoder_layer[i](state, mask, use_gpu)
+            # if return_attn:
+            #     atten_list.append(attention.cpu().numpy())
             update_weights = (new_halt * remainder + still_running * p).unsqueeze(-1)
             previous_state = state * update_weights + previous_state
-        return previous_state, updates_num
+        return previous_state, atten_list, updates_num.detach().cpu().numpy()

@@ -13,7 +13,7 @@ class Data:
         self.tag_vocab = Vocab('tag', is_tag=True)
         self.char_embedding = None  # 这个是借鉴的呜呜呜子
         # 不论如何，将 data 定义在这里
-        self.char_embedding_dim = 50
+        self.char_embedding_dim = 256
         # 这个主要是用于存放 训练 验证 测试数据的迭代器。
         self.train_iter = None
         self.dev_iter = None
@@ -60,7 +60,7 @@ class Data:
             self.build_tag_vocab(train_data)
             # 通过之前的步骤，在首次，我们已经加载好了词语向量。
             # 接下来，我们来加载中文字词向量
-            self.load_char_pretrained_embedding('data/gigaword_chn.all.a2b.uni.ite50.vec')
+            self.load_char_pretrained_embedding('data/news_char_256.vec')
             # 接下来我们要保存这些东西。
             self.char_vocab.save(self.opt.save_data + os.sep + 'char_vocab')
             self.tag_vocab.save(self.opt.save_data + os.sep + 'tag_vocab')
@@ -73,7 +73,7 @@ class Data:
             # 首先 加载两个词向量
             self.char_vocab.load(self.opt.load_data + os.sep + 'char_vocab')
             self.tag_vocab.load(self.opt.load_data + os.sep + 'tag_vocab')
-            self.char_embedding = np.load(self.opt.load_data + os.sep + 'char_embedding_matrix_50.npy')
+            self.char_embedding = np.load(self.opt.load_data + os.sep + 'char_embedding_matrix_256.npy')
             self.char_embedding_dim = self.char_embedding.shape[1]
 
     def build_data(self, batch_size):
@@ -85,7 +85,7 @@ class Data:
             self.train_iter = data_iterator(self.opt.train, self.char_vocab, self.tag_vocab, batch_size)
             self.dev_iter = data_iterator(self.opt.dev, self.char_vocab, self.tag_vocab, batch_size)
         elif self.opt.status.lower() == 'test':
-            self.test_iter = data_iterator(self.opt.dev, self.char_vocab, self.tag_vocab, batch_size)
+            self.test_iter = data_iterator(self.opt.test, self.char_vocab, self.tag_vocab, batch_size)
         elif self.opt.status.lower() == 'decode':
             pass
         else:

@@ -10,9 +10,6 @@ class Multi_Head_Attention(nn.Module):
         super(Multi_Head_Attention, self).__init__()
         self.head = config.head
         self.k_dim = config.k_dim
-        self.q_linear = nn.Linear(config.d_model, config.d_model)
-        self.k_linear = nn.Linear(config.d_model, config.d_model)
-        self.v_linear = nn.Linear(config.d_model, config.d_model)
         self.q_multi_linear = nn.Linear(config.d_model, config.head * config.k_dim)
         self.k_multi_linear = nn.Linear(config.d_model, config.head * config.k_dim)
         self.v_multi_linear = nn.Linear(config.d_model, config.d_model)
@@ -28,13 +25,9 @@ class Multi_Head_Attention(nn.Module):
         :param mask: 采用了广播，形状应该为 (batch_size,seq_len)
         :return: 上下文向量：(batch_size,seq_len,d_model),以及 attention (batch,head,q_seq_len,v_seq_len)
         """
-
-        query = self.q_linear(x)
-        key = self.k_linear(y)
-        value = self.v_linear(y)
-        query = self.q_multi_linear(query)
-        key = self.k_multi_linear(key)  # (batch_size, seq_len, head_num * k_dim)
-        value = self.v_multi_linear(value)
+        query = self.q_multi_linear(x)
+        key = self.k_multi_linear(y)  # (batch_size, seq_len, head_num * k_dim)
+        value = self.v_multi_linear(y)
         query = query.view(query.shape[0], query.shape[1], self.head, -1)
         key = key.view(key.shape[0], key.shape[1], self.head, -1)
         value = value.view(value.shape[0], value.shape[1], self.head, -1)
@@ -47,7 +40,7 @@ class Multi_Head_Attention(nn.Module):
             mask = mask.unsqueeze(1)
             mask = mask.unsqueeze(2)
             # print('mask shape:', mask.shape)
-            qk_result = qk_result.masked_fill(mask, 1e-10)
+            qk_result = qk_result.masked_fill(mask, -1e10)
         qk_result = F.softmax(qk_result, dim=3)  # (batch_size,head_num,q_seq_len,k_seq_len)
         qkv_result = qk_result.matmul(value)  # (batch_size,head_num,q_seq_len,v_dim)
         qkv_result = qkv_result.permute(0, 2, 1, 3)
@@ -55,6 +48,7 @@ class Multi_Head_Attention(nn.Module):
         qkv_result = self.o_matrix(qkv_result)
         qkv_result = self.dropout(qkv_result)
         return qkv_result, qk_result
+        #return qkv_result
 
 
 class Position_Wise_Network(nn.Module):

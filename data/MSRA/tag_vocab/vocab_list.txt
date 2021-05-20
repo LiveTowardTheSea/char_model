@@ -1,1 +1,1 @@
-["O", "B-LOC", "I-LOC", "B-ORG", "I-ORG", "B-PER", "I-PER"]
+["O", "S-LOC", "B-LOC", "E-LOC", "B-ORG", "I-ORG", "E-ORG", "I-LOC", "B-PER", "I-PER", "E-PER", "S-PER", "S-ORG"]

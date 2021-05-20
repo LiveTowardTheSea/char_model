@@ -30,11 +30,11 @@ def compute_mask(mask, use_gpu):
     return binary_mask
 
 class CRF_decoder(nn.Module):
-    def __init__(self, config, tag_num):
+    def __init__(self, d_model, tag_num):
         super(CRF_decoder, self).__init__()
         self.tag_num = tag_num
-        self.config = config
-        self.feature2tag = nn.Linear(config.d_model, tag_num, bias=False)
+        self.d_model = d_model
+        self.feature2tag = nn.Linear(d_model, tag_num, bias=False)
         self.transition_matrix = nn.Parameter(torch.randn((tag_num + 2, tag_num + 2)))
         # transition_matrix[i][j]代表了 从i到j的转移
         self.SRT_IDX = tag_num
@@ -148,17 +148,20 @@ class CRF_decoder(nn.Module):
         # 下面，我们把焦点放在stage_score 和stage_idx上面
         sentence_length_idx = seq_len - torch.sum(mask, dim=1).long() - 1
         final_token_score = torch.zeros(batch_size, self.tag_num)
+        if use_gpu:
+            final_token_score = final_token_score.cuda()
         for i in range(batch_size):
             final_token_score[i] = stage_score[i, sentence_length_idx[i], :]
         final_token_score = final_token_score + self.transition_matrix[:-2, self.END_IDX].unsqueeze(0)
         max_idx = torch.max(final_token_score, dim=1)[1]  # 最后一个token是什么
         path = []
+        
         for i in range(batch_size):
             best_path = []
             now = max_idx[i]
-            best_path.append(now)
+            best_path.append(now.cpu().item())
             for j in range(sentence_length_idx[i], 0, -1):
-                last = stage_idx[i, j, now]
+                last = stage_idx[i, j, now].cpu().item()
                 best_path.insert(0, last)
                 now = last
             path.append(best_path)
@@ -168,14 +171,17 @@ class CRF_decoder(nn.Module):
         """返回[batch_size]"""
         tag_vec = self.feature2tag(feature_vec)
         # 这里太大了，我们除以一个东西
-        tag_vec = tag_vec / math.sqrt(self.config.d_model)
+        tag_vec = tag_vec / math.sqrt(self.d_model)
         s_xy = self.compute_score(tag_vec, y, mask, use_gpu)
         sum_sentence = self.sum_of_sentence_score(tag_vec, mask, use_gpu)
         #print("当前batch，所有路径总结果为：",sum_sentence)
-        return sum_sentence - s_xy.squeeze(-1)
+        with torch.no_grad():
+            path_ = self.viterbi_decode(tag_vec, mask, use_gpu)
+        return sum_sentence - s_xy.squeeze(-1),path_
 
     def forward(self, feature_vec, mask, use_gpu):
         tag_vec = self.feature2tag(feature_vec)
+        tag_vec = tag_vec / math.sqrt(self.d_model)
         best_path = self.viterbi_decode(tag_vec, mask, use_gpu)
         return best_path
 
