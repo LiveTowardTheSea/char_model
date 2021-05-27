@@ -32,3 +32,24 @@ class universal_config:
         self.regularization=0.008
         self.epoch_num=30
         self.momentum =0.9
+
+
+class synthesizer_config:
+    def __init__(self):
+        self.d_model = 256
+        self.head = 4
+        self.k_dim = 64
+        self.max_len = 256
+        self.use_fr = False
+        self.scale = 8
+        self.p_drop = 0.1
+        self.d_ff = 1024
+        self.model_name ='syn'
+        self.layer_num = 4
+        self.lr = 0.001
+        self.regularization = 0.008
+        self.lr_decay = 0.05
+        self.batch_size = 32
+        self.epoch_num = 30
+        self.momentum = 0.9
+

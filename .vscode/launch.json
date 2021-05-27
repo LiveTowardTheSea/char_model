@@ -11,10 +11,10 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "--status","test",
+                "--status","train",
                 "--load_data","data/MSRA",
-                "--model","vanilla",
-                "--load_model","data/MSRA/saved_model/vanilla/epoch_27.model"
+                "--model","syn",
+                "--save_model","data/MSRA/saved_model/syn"
             ]
         }
     ]

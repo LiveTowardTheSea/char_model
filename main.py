@@ -2,10 +2,12 @@ import sys
 sys.path.append('utils')
 sys.path.append('model/vanilla_transformer')
 sys.path.append('model/universal_model')
+sys.path.append('model/synthesizer')
 from config import *
 import my_data
 from model.vanilla_transformer.vanilla_model import *
 from model.universal_model.universal_Model import *
+from model.synthesizer.syn_model import *
 import argparse
 import torch
 import time
@@ -22,6 +24,8 @@ def get_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_di
         model = vanilla_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)
     elif config.model_name == 'universal':
         model = Universal_Model(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)
+    elif config.model_name == 'syn':
+        model = syn_model(config, src_embedding_num, tag_num, embedding_matrix, embedding_dim_size)
     if load_model is not None:
         model.load_state_dict(torch.load(load_model))
     else:
@@ -102,7 +106,7 @@ def eval_model(model, my_data, mode='dev', use_gpu=True):
                     sentence_tensor = sentence_tensor.cuda()
                     tag_tensor = tag_tensor.cuda()
                     sentence_mask = sentence_mask.cuda()
-                encoder_output, atten_list,update_num_ = model.encoder(sentence_tensor, sentence_mask, use_gpu)
+                encoder_output = model.encoder(sentence_tensor, sentence_mask, use_gpu)
                 # decode_result 是一个 列表的列表，里面存放着当前预测的词汇编号
                 decode_result = model.decoder(encoder_output, sentence_mask, use_gpu)
                 # 是一个累加的问题 decode_result, tag_tensor为真实值
@@ -270,15 +274,16 @@ def train_model(model, config, args, my_data, use_gpu):
 
 if __name__ == '__main__':
     opt = argparse.ArgumentParser(description='tuning and setting the various Transformer')
-    opt.add_argument('--model',choices=['universal','vanilla'],default='vanilla')
+    opt.add_argument('--model',choices=['universal','vanilla','syn'],default='vanilla')
     opt.add_argument('--status', choices=['train', 'test', 'decode'], default='train')
     opt.add_argument('--save_model', default='data/MSRA/saved_model/vanilla')
     opt.add_argument('--load_model', help='training from scratch or load path', default=None)
     opt.add_argument('--save_data', help='save vocab or vector', default=None)
     opt.add_argument('--load_data', help='load vocab or vector', default=None)
-    opt.add_argument('--train', help='the path of train file', default='data/MSRA/msra_train_bioes')
-    opt.add_argument('--dev', help='the path of dev file', default='data/MSRA/msra_dev_bioes')
-    opt.add_argument('--test', help='the path of test file', default='data/MSRA/msra_test_bioes')
+    # 缩短之后的
+    opt.add_argument('--train', help='the path of train file', default='data/MSRA/msra_train_bioes_2')
+    opt.add_argument('--dev', help='the path of dev file', default='data/MSRA/msra_dev_bioes_2')
+    opt.add_argument('--test', help='the path of test file', default='data/MSRA/msra_test_bioes_2')
     args = opt.parse_args()
     # gpu 是否可以使用
     use_gpu = torch.cuda.is_available()
@@ -293,6 +298,8 @@ if __name__ == '__main__':
         config = vanilla_config()
     elif args.model == 'universal':
         config = universal_config()
+    elif args.model == 'syn':
+        config = synthesizer_config()
     data = my_data.Data(args)
     # 经过如下的build_data,我们已经初始化了字词向量
     data.build_data(config.batch_size)
